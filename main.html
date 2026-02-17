@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CuePoint Advisory — Healthcare Strategy</title>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png">
 <style>
 :root{
   --bone:#F4F1EC;--stone:#D4CFC8;--forest-ink:#24322E;--deep-forest:#2F4A45;
@@ -17,10 +18,10 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bone);color:var(--forest-ink);overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 15vw;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:all .45s ease}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 15vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:all .45s ease}
 nav.scrolled{background:rgba(244,241,236,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--stone)}
 .n-logo{display:flex;align-items:center;transition:opacity .4s}
-.n-logo img{height:40px;width:auto}
+.n-logo img{height:70px;width:auto}
 .n-logo .logo-dark{display:none}
 .n-logo .logo-light{display:block}
 nav.scrolled .n-logo .logo-dark{display:block}
@@ -60,10 +61,11 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 .btn-g:hover svg{transform:translateX(3px)}
 
 /* TICKER */
-.ticker{display:flex;border-top:1px solid var(--stone);border-bottom:1px solid var(--stone);background:white;overflow:hidden}
-.ticker-item{flex:1;padding:32px 15vw;display:flex;align-items:center;gap:18px;border-right:1px solid var(--stone)}
+.ticker-wrap{background:white;border-top:1px solid var(--stone);border-bottom:1px solid var(--stone)}
+.ticker{display:grid;grid-template-columns:repeat(3,1fr);margin:0 15vw}
+.ticker-item{padding:32px 40px;display:flex;align-items:center;gap:18px;border-right:1px solid var(--stone)}
 .ticker-item:last-child{border-right:none}
-.ticker-num{font-family:'EB Garamond',serif;font-size:36px;font-weight:600;color:var(--deep-forest);line-height:1}
+.ticker-num{font-family:'EB Garamond',serif;font-size:36px;font-weight:600;color:var(--deep-forest);line-height:1;white-space:nowrap}
 .ticker-label{font-size:14px;color:var(--sage-slate);line-height:1.45}
 
 /* ABOUT */
@@ -191,7 +193,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
 .ft-links{display:flex;gap:28px;margin-bottom:8px}
 .ft-links a{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .3s}
 .ft-links a:hover{color:white}
-.ft-copy{font-size:11px;color:rgba(255,255,255,.18)}
+.ft-copy{font-size:16px;color:rgba(255,255,255,.18)}
 
 /* ANIMATION */
 .fu{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.22,1,.36,1)}
@@ -276,7 +278,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   </div>
 </section>
 
-<!-- TICKER -->
+<div class="ticker-wrap">
 <div class="ticker">
   <div class="ticker-item">
     <div class="ticker-num">20+</div>
@@ -289,6 +291,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   <div class="ticker-item">
     <div class="ticker-num">5</div>
     <div class="ticker-label">Integrated knowledge domains</div>
+  </div>
   </div>
 </div>
 
@@ -379,8 +382,9 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <div>
       <div class="how-ey">How We Work</div>
       <h2 class="how-h">Lean by design</h2>
+      <div class="about-p">Built to deliver clarity before leaders commit to action.</div>
     </div>
-    <div class="how-right">Built to deliver clarity before leaders commit to action.</div>
+    
   </div>
   <div class="how-cards">
     <div class="how-card fu">
@@ -504,11 +508,11 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <div class="ft-tag">"Positioning healthcare leaders ahead of market-defining moments."</div>
   </div>
   <div class="ft-right">
-    <div class="ft-links">
+    <!--<div class="ft-links">
       <a href="#about">About</a>
       <a href="#how">How We Work</a>
       <a href="#contact">Contact</a>
-    </div>
+    </div>-->
     <div class="ft-copy">&copy; 2026 CuePoint Advisory. All rights reserved.</div>
   </div>
 </footer>
