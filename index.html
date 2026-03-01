@@ -171,6 +171,11 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 .cta-form input:focus,.cta-form textarea:focus{border-color:var(--deep-forest)}
 .cta-form textarea{resize:vertical;min-height:110px}
 .cta-form .btn-p{align-self:center;margin-top:8px}
+.cta-form .btn-p:disabled{opacity:.5;cursor:not-allowed}
+.cta-success{display:none;text-align:center;position:relative;z-index:2;max-width:500px;margin:0 auto}
+.cta-success.show{display:block}
+.cta-success h3{font-family:'EB Garamond',serif;font-size:30px;font-weight:600;color:var(--deep-forest);margin-bottom:12px}
+.cta-success p{font-size:16px;color:var(--sage-slate);line-height:1.7}
 
 /* FOOTER */
 footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-content:space-between;align-items:center}
@@ -461,6 +466,10 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <textarea name="message" placeholder="Tell us about the decision you're navigating..."></textarea>
     <button type="submit" class="btn-p">Send Inquiry</button>
   </form>
+  <div class="cta-success" id="cta-success">
+    <h3>Thank you for reaching out.</h3>
+    <p>Your inquiry has been received. A member of our team will be in touch shortly.</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -485,6 +494,35 @@ window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scr
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+// FormSubmit AJAX handler
+const ctaForm=document.querySelector('.cta-form');
+const ctaSuccess=document.getElementById('cta-success');
+ctaForm.addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=ctaForm.querySelector('button[type="submit"]');
+  const origText=btn.textContent;
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  fetch(ctaForm.action,{
+    method:'POST',
+    body:new FormData(ctaForm),
+    headers:{'Accept':'application/json'}
+  }).then(r=>{
+    if(r.ok){
+      ctaForm.style.display='none';
+      ctaSuccess.classList.add('show');
+    }else{
+      btn.textContent='Something went wrong — try again';
+      btn.disabled=false;
+      setTimeout(()=>{btn.textContent=origText},3000);
+    }
+  }).catch(()=>{
+    btn.textContent='Connection error — try again';
+    btn.disabled=false;
+    setTimeout(()=>{btn.textContent=origText},3000);
+  });
+});
 </script>
 </body>
 </html>
