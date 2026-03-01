@@ -153,21 +153,6 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 .brought-img img{width:100%;height:100%;object-fit:cover;display:block}
 .brought-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--bone) 0%,transparent 15%)}
 
-/* ENGAGEMENT FLOW */
-.engage{position:relative;padding:140px 15vw;overflow:hidden}
-.engage-bg-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80&auto=format') center/cover no-repeat}
-.engage-bg-overlay{position:absolute;inset:0;background:rgba(47,74,69,.93)}
-.engage-ey{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--warm-clay);margin-bottom:14px;position:relative;z-index:2}
-.engage-h{font-family:'EB Garamond',serif;font-size:40px;font-weight:600;color:white;line-height:1.2;margin-bottom:14px;position:relative;z-index:2}
-.engage-sub{font-size:17px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:64px;max-width:500px;position:relative;z-index:2}
-.engage-flow{display:flex;gap:0;position:relative;z-index:2}
-.engage-step{flex:1;padding:40px 28px;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:background .3s;background:rgba(47,74,69,.5);backdrop-filter:blur(4px)}
-.engage-step:hover{background:rgba(47,74,69,.7)}
-.es-num{font-family:'EB Garamond',serif;font-size:44px;font-weight:600;color:var(--warm-clay);opacity:.35;line-height:1;margin-bottom:14px}
-.engage-step h3{font-family:'EB Garamond',serif;font-size:22px;font-weight:600;color:white;margin-bottom:12px}
-.engage-step p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.45);flex:1}
-.es-arrow{position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:3;width:26px;height:26px;border-radius:50%;background:var(--mid-terracotta);display:flex;align-items:center;justify-content:center}
-.es-arrow svg{width:11px;height:11px;fill:white}
 
 /* DIFF STRIP */
 .diff-strip{background:var(--forest-ink);padding:72px 15vw;display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
@@ -440,39 +425,6 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   </div>
 </section>
 
-<!-- ENGAGEMENT FLOW -->
-<section class="engage" id="approach">
-  <div class="engage-bg-img"></div>
-  <div class="engage-bg-overlay"></div>
-  <div class="engage-ey">Engagement Model</div>
-  <h2 class="engage-h">From diagnostic to resolution</h2>
-  <div class="engage-sub">A structured arc designed around decisions, not deliverables.</div>
-  <div class="engage-flow fu">
-    <div class="engage-step" style="position:relative">
-      <div class="es-num">01</div>
-      <h3>Diagnose</h3>
-      <p>Map the decision landscape. Surface the assumptions driving current strategy.</p>
-      <div class="es-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    </div>
-    <div class="engage-step" style="position:relative">
-      <div class="es-num">02</div>
-      <h3>Translate</h3>
-      <p>Synthesize stakeholder perspectives into a strategic frame that reveals trade-offs.</p>
-      <div class="es-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    </div>
-    <div class="engage-step" style="position:relative">
-      <div class="es-num">03</div>
-      <h3>Frame</h3>
-      <p>Define the actual decision — not the assumed one. Present options with clear trade-offs.</p>
-      <div class="es-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    </div>
-    <div class="engage-step">
-      <div class="es-num">04</div>
-      <h3>Resolve</h3>
-      <p>Deliver a recommendation specific enough to act on, flexible enough to adapt.</p>
-    </div>
-  </div>
-</section>
 
 <!-- DIFF STRIP -->
 <div class="diff-strip">
@@ -495,16 +447,20 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   <div class="cta-bg"></div>
   <h2 class="cta-h">If you're here, it's likely because someone you trust suggested a conversation.</h2>
   <p class="cta-p">CuePoint begins with a discussion to assess fit, context, and what is at stake.</p>
-  <div class="cta-form">
+  <form class="cta-form" action="https://formsubmit.co/contact@cuepointadvisory.com" method="POST">
+    <input type="hidden" name="_subject" value="New CuePoint Advisory Inquiry">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" style="display:none">
     <div class="cta-row">
-      <input type="text" placeholder="Name">
-      <input type="text" placeholder="Title">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="title" placeholder="Title">
     </div>
-    <input type="email" placeholder="Email">
-    <input type="text" placeholder="Organization">
-    <textarea placeholder="Tell us about the decision you're navigating..."></textarea>
-    <button class="btn-p">Send Inquiry</button>
-  </div>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="organization" placeholder="Organization">
+    <textarea name="message" placeholder="Tell us about the decision you're navigating..."></textarea>
+    <button type="submit" class="btn-p">Send Inquiry</button>
+  </form>
 </section>
 
 <!-- FOOTER -->
