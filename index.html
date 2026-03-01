@@ -504,10 +504,15 @@ ctaForm.addEventListener('submit',function(e){
   const origText=btn.textContent;
   btn.textContent='Sending...';
   btn.disabled=true;
-  fetch(ctaForm.action,{
+  const formData=new FormData(ctaForm);
+  const data=Object.fromEntries(formData.entries());
+  fetch('https://formsubmit.co/ajax/contact@cuepointadvisory.com',{
     method:'POST',
-    body:new FormData(ctaForm),
-    headers:{'Accept':'application/json'}
+    headers:{
+      'Content-Type':'application/json',
+      'Accept':'application/json'
+    },
+    body:JSON.stringify(data)
   }).then(r=>{
     if(r.ok){
       ctaForm.style.display='none';
