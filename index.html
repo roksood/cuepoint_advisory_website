@@ -18,8 +18,8 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bone);color:var(--forest-ink);overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 15vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:all .45s ease}
-nav.scrolled{background:rgba(244,241,236,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--stone)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 15vw;height:100px;display:flex;align-items:center;justify-content:space-between;background:transparent;box-shadow:0 0 0 rgba(0,0,0,0);transition:box-shadow .6s ease}
+nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08)}
 .n-logo{display:flex;align-items:center;transition:opacity .4s}
 .n-logo img{height:70px;width:auto}
 .n-logo .logo-dark{display:none}
@@ -38,20 +38,20 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:0 15vw;position:relative;overflow:hidden;background:var(--deep-forest)}
-.hero-bg-grid{position:absolute;inset:0;opacity:.05}
+.hero-bg-grid{position:absolute;inset:0;opacity:.18}
 .hero-bg-grid svg{width:100%;height:100%}
-.hero-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06)}
+.hero-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.22)}
 .hero-circle-1{width:500px;height:500px;top:-5%;right:-5%}
 .hero-circle-2{width:340px;height:340px;top:15%;right:5%}
-.hero-circle-3{width:180px;height:180px;top:30%;right:12%;border-color:rgba(181,114,94,.12)}
-.hero-float{position:absolute;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.18);font-family:'Inter',sans-serif}
+.hero-circle-3{width:180px;height:180px;top:30%;right:12%;border-color:rgba(255,255,255,.16)}
+.hero-float{position:absolute;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif}
 .hero-float-1{top:24%;right:8%}
 .hero-float-2{top:52%;right:5%}
 .hero-float-3{bottom:30%;right:12%}
 .hero-content{position:relative;z-index:2;max-width:620px;padding:120px 0}
 .hero h1{font-family:'EB Garamond',serif;font-size:58px;font-weight:600;line-height:1.12;color:white;margin-bottom:28px}
 .hero h1 em{font-style:italic;color:var(--warm-clay)}
-.hero-p{font-size:18px;line-height:1.75;color:rgba(255,255,255,.5);margin-bottom:44px;max-width:500px}
+.hero-p{font-size:18px;line-height:1.75;color:rgba(255,255,255,.8);margin-bottom:44px;max-width:500px}
 .hero-btns{display:flex;gap:16px;align-items:center}
 .btn-p{display:inline-block;padding:16px 36px;background:var(--mid-terracotta);color:white;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;text-decoration:none;border:none;cursor:pointer;transition:all .3s}
 .btn-p:hover{background:var(--deep-oxide);transform:translateY(-1px)}
@@ -110,23 +110,22 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 .trans-ey{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--mid-terracotta);margin-bottom:14px}
 .trans-h{font-family:'EB Garamond',serif;font-size:40px;font-weight:600;color:var(--forest-ink);line-height:1.2;margin-bottom:14px}
 .trans-sub{font-size:17px;color:var(--sage-slate);line-height:1.7;max-width:540px;margin:0 auto}
-.trans-visual{display:flex;align-items:center;gap:0;margin-bottom:44px}
-.trans-col{flex:1}
-.trans-domain{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--stone);transition:background .25s}
-.trans-domain:last-child{border-bottom:none}
-.trans-domain:hover{background:white}
-.trans-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.trans-domain h4{font-size:15px;font-weight:600;color:var(--forest-ink)}
-.trans-domain span{font-size:13px;color:var(--sage-slate);margin-left:6px;font-weight:400}
-.trans-mid{flex:0 0 220px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:0 24px}
-.trans-line{width:40px;height:1px;background:var(--stone)}
-.trans-node{width:170px;height:170px;border-radius:50%;background:var(--deep-forest);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;margin:16px 0}
-.trans-node h3{font-family:'EB Garamond',serif;font-size:17px;font-weight:600;color:white;margin-bottom:6px}
-.trans-node p{font-size:10px;color:rgba(255,255,255,.5);line-height:1.4}
+.trans-visual{display:flex;align-items:center;gap:0;margin-bottom:44px;position:relative}
+.trans-col{flex:1.5}
+.trans-domain{display:flex;align-items:flex-start;gap:0;padding:14px 18px;border-bottom:none;margin-bottom:6px;transition:opacity .25s}
+.trans-domain:last-child{margin-bottom:0}
+.trans-domain:hover{opacity:.88}
+.trans-dot{display:none}
+.trans-domain h4{font-family:'EB Garamond',serif;font-size:20px;font-weight:700;color:white;margin-bottom:4px}
+.trans-domain span{font-family:'EB Garamond',serif;font-size:13px;color:rgba(255,255,255,.78);font-weight:400;display:block;line-height:1.45}
+.trans-mid{flex:1;display:flex;align-items:center;justify-content:center;padding:0 16px}
+.trans-node{width:220px;height:220px;border-radius:50%;background:var(--deep-forest);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}
+.trans-node h3{font-family:'EB Garamond',serif;font-size:22px;font-weight:600;color:white;margin-bottom:8px}
+.trans-node p{font-size:12px;color:rgba(255,255,255,.65);line-height:1.5}
 .trans-out{flex:1;display:flex;align-items:center}
-.trans-out-card{width:100%;padding:44px 36px;border:2px solid var(--mid-terracotta);text-align:center}
-.trans-out-card h3{font-family:'EB Garamond',serif;font-size:22px;font-weight:600;color:var(--mid-terracotta);margin-bottom:10px}
-.trans-out-card p{font-size:14px;color:var(--sage-slate);line-height:1.6}
+.trans-out-card{width:100%;padding:36px 28px;background:var(--mid-terracotta);border-radius:8px;border:none;text-align:center}
+.trans-out-card h3{font-family:'EB Garamond',serif;font-size:22px;font-weight:600;color:white;margin-bottom:10px}
+.trans-out-card p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6}
 
 /* HOW WE WORK */
 .how{padding:0;display:grid;grid-template-columns:1.4fr 1fr;min-height:620px}
@@ -248,7 +247,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-grid">
-    <svg viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 1200 900" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="0" y1="150" x2="1200" y2="150" stroke="white" stroke-width=".5"/>
       <line x1="0" y1="300" x2="1200" y2="300" stroke="white" stroke-width=".5"/>
       <line x1="0" y1="450" x2="1200" y2="450" stroke="white" stroke-width=".5"/>
@@ -308,24 +307,6 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   </div>
 </section>
 
-<!-- PRINCIPLES -->
-<section class="principles">
-  <div class="pr-grid fu">
-    <div class="pr-card">
-      <div class="pr-label">Principle One</div>
-      <h3>Simplistic</h3>
-      <p>Strip away inherited complexity to find what is essential. Healthcare strategies accumulate layers — legacy assumptions, outdated contracts, organizational inertia. We ask which constraints are real and which are inherited.</p>
-    </div>
-    <div class="pr-card">
-      <div class="pr-label">Principle Two</div>
-      <h3>Humanistic</h3>
-      <p>Design around how stakeholders actually behave, not how the system assumes they should. When strategy optimizes for organizational logic instead of the reality of patients, payers, and providers — it solves for the model, not the market.</p>
-    </div>
-  </div>
-  <div class="pr-anchor">
-    <p>Complexity is not rigor. And efficiency without empathy is just cost-cutting.</p>
-  </div>
-</section>
 
 <!-- BREAK -->
 <div class="break-dark">
@@ -342,40 +323,40 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <p class="trans-sub">Most firms staff domain specialists. CuePoint translates across all five — turning fragmented knowledge into coherent decisions.</p>
   </div>
   <div class="trans-visual fu">
+    <svg id="trans-arrows" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+      <defs>
+        <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M0,0.5 L5,3 L0,5.5 Z" fill="rgba(44,62,45,.25)"/>
+        </marker>
+      </defs>
+    </svg>
     <div class="trans-col">
-      <div class="trans-domain">
-        <div class="trans-dot" style="background:var(--deep-forest)"></div>
-        <div><h4>Payer Strategy & Contracting</h4><span>Coverage, formulary, value-based arrangements</span></div>
+      <div class="trans-domain" style="background:#2F4A45">
+        <div><h4>Payer Strategy &amp; Contracting</h4><span>Optimizing formulary access in one channel increasingly creates risk in another</span></div>
       </div>
-      <div class="trans-domain">
-        <div class="trans-dot" style="background:var(--deep-oxide)"></div>
-        <div><h4>PBM & Channel Dynamics</h4><span>Rebates, specialty pharmacy, distribution</span></div>
+      <div class="trans-domain" style="background:#3A5249">
+        <div><h4>PBM &amp; Channel Dynamics</h4><span>How products flow through PBMs, specialty pharmacies, GPOs, and distribution networks</span></div>
       </div>
-      <div class="trans-domain">
-        <div class="trans-dot" style="background:var(--dusty-slate)"></div>
-        <div><h4>Employer Benefits Strategy</h4><span>Plan design, cost containment, access levers</span></div>
+      <div class="trans-domain" style="background:#4E6256">
+        <div><h4>Employer Benefits Strategy</h4><span>How employers design, fund, and manage health benefits and how those decisions shape access</span></div>
       </div>
-      <div class="trans-domain">
-        <div class="trans-dot" style="background:var(--mid-terracotta)"></div>
-        <div><h4>Patient Access & Support</h4><span>Hub services, affordability, adherence</span></div>
+      <div class="trans-domain" style="background:#5A6B7A">
+        <div><h4>Patient Access &amp; Support</h4><span>How patients navigate coverage, affordability, and adherence barriers across the journey</span></div>
       </div>
-      <div class="trans-domain">
-        <div class="trans-dot" style="background:var(--muted-bordeaux)"></div>
-        <div><h4>Health Policy & Regulatory</h4><span>Pricing reform, IRA, biosimilar policy</span></div>
+      <div class="trans-domain" style="background:#7A8A98">
+        <div><h4>Health Policy &amp; Regulatory</h4><span>How legislation and government policy reshape the access landscape for manufacturers</span></div>
       </div>
     </div>
     <div class="trans-mid">
-      <div class="trans-line"></div>
       <div class="trans-node">
         <h3>Strategic Translation</h3>
-        <p>Synthesizing implications and trade-offs into actionable clarity</p>
+        <p>Synthesizing across domains to surface implications, tradeoffs, and actionable recommendations</p>
       </div>
-      <div class="trans-line"></div>
     </div>
-    <div class="trans-out">
+<div class="trans-out">
       <div class="trans-out-card">
         <h3>Integrated Brand Access Strategy</h3>
-        <p>A unified plan built for the decision at hand — reflecting the full complexity of the access environment.</p>
+        <p>A unified, actionable plan reflecting the full complexity of the access environment</p>
       </div>
     </div>
   </div>
@@ -391,22 +372,22 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
       <div class="how-item">
         <div class="how-item-num">01</div>
         <div>
-          <h3>Judgment Before Execution</h3>
-          <p>We help leaders reframe the problem and clarify trade-offs before committing resources.</p>
+          <h3>Lean Proactive Teams</h3>
+          <p>Senior-led teams with no unnecessary layers, focused work, faster decisions, and clear accountability.</p>
         </div>
       </div>
       <div class="how-item">
         <div class="how-item-num">02</div>
         <div>
-          <h3>Clarity Before Overhead</h3>
-          <p>Senior involvement from day one. No layers, no noise. High return on leadership time.</p>
+          <h3>AI-Enabled Leverage</h3>
+          <p>AI-integrated delivery expands capacity and accelerates turnaround without adding headcount.</p>
         </div>
       </div>
       <div class="how-item">
         <div class="how-item-num">03</div>
         <div>
-          <h3>Assessment Before Commitment</h3>
-          <p>Every engagement starts by identifying misalignment and clarifying what must be preserved.</p>
+          <h3>Disciplined Capital Use</h3>
+          <p>Resources deployed only where they drive material impact.</p>
         </div>
       </div>
     </div>
@@ -489,8 +470,64 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
 </footer>
 
 <script>
+function drawTransArrows(){
+  const svg=document.getElementById('trans-arrows');
+  if(!svg)return;
+  svg.querySelectorAll('path.arr-path,line.arr-path').forEach(l=>l.remove());
+  const vr=svg.parentElement.getBoundingClientRect();
+  const node=document.querySelector('.trans-node');
+  const domains=document.querySelectorAll('.trans-domain');
+  const card=document.querySelector('.trans-out-card');
+  if(!node||!domains.length)return;
+  const nr=node.getBoundingClientRect();
+  const ncx=nr.left+nr.width/2-vr.left;
+  const ncy=nr.top+nr.height/2-vr.top;
+  const rad=nr.width/2;
+  // left curved arrows
+  domains.forEach(d=>{
+    const dr=d.getBoundingClientRect();
+    const x1=dr.right-vr.left;
+    const y1=dr.top+dr.height/2-vr.top;
+    const dx=ncx-x1,dy=ncy-y1,dist=Math.sqrt(dx*dx+dy*dy);
+    const x2=ncx-dx/dist*(rad+6),y2=ncy-dy/dist*(rad+6);
+    const offset=Math.abs(x2-x1)*0.5;
+    const cp1x=x1+offset,cp1y=y1;
+    const cp2x=x2-offset*0.3,cp2y=y2;
+    const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('class','arr-path');
+    p.setAttribute('d',`M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`);
+    p.setAttribute('stroke','rgba(44,62,45,.3)');
+    p.setAttribute('stroke-width','1');
+    p.setAttribute('fill','none');
+    p.setAttribute('marker-end','url(#arr)');
+    svg.appendChild(p);
+  });
+  // right straight arrow: circle edge → card left edge
+  if(card){
+    const cr=card.getBoundingClientRect();
+    const ax1=ncx+rad+6;
+    const ay1=ncy;
+    const ax2=cr.left-vr.left-6;
+    const ay2=cr.top+cr.height/2-vr.top;
+    const ln=document.createElementNS('http://www.w3.org/2000/svg','line');
+    ln.setAttribute('class','arr-path');
+    ln.setAttribute('x1',ax1);ln.setAttribute('y1',ay1);
+    ln.setAttribute('x2',ax2);ln.setAttribute('y2',ay2);
+    ln.setAttribute('stroke','rgba(44,62,45,.3)');
+    ln.setAttribute('stroke-width','1');
+    ln.setAttribute('marker-end','url(#arr)');
+    svg.appendChild(ln);
+  }
+}
+window.addEventListener('load',drawTransArrows);
+window.addEventListener('resize',drawTransArrows);
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+window.addEventListener('scroll',()=>{
+  const p=Math.min(window.scrollY/300,1);
+  nav.style.background=`rgba(244,241,236,${(p*0.97).toFixed(3)})`;
+  nav.style.backdropFilter=p>0?`blur(${(p*16).toFixed(1)}px)`:'';
+  nav.classList.toggle('scrolled',p>=0.5);
+});
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
