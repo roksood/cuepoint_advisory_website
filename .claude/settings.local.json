@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:formsubmit.co)"
+      "WebFetch(domain:formsubmit.co)",
+      "Bash(ls -la /d/github/cuepoint_advisory_website/*.css /d/github/cuepoint_advisory_website/*.js)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

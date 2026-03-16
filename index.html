@@ -190,18 +190,36 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
 .fu{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.22,1,.36,1)}
 .fu.vis{opacity:1;transform:translateY(0)}
 
+/* HAMBURGER */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:200}
+.hamburger svg{display:block}
+.hamburger .ham-open{display:block}
+.hamburger .ham-close{display:none}
+.hamburger.active .ham-open{display:none}
+.hamburger.active .ham-close{display:block}
+.mob-menu{display:none}
+
 /* MOBILE */
 @media(max-width:820px){
   nav{padding:0 24px}
   .n-links{display:none}
+  .hamburger{display:block}
+  .hamburger line{stroke:white;transition:stroke .3s}
+  nav.scrolled .hamburger line{stroke:var(--forest-ink)}
+  .mob-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:99;background:var(--deep-forest);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .mob-menu.open{opacity:1;pointer-events:auto}
+  .mob-menu a{font-family:'EB Garamond',serif;font-size:28px;color:white;text-decoration:none;transition:color .3s}
+  .mob-menu a:hover{color:var(--warm-clay)}
+  .mob-menu .n-cta{font-family:'Inter',sans-serif;font-size:14px;background:var(--mid-terracotta);padding:14px 32px;margin-top:16px}
   .hero{padding:100px 24px}
   .hero h1{font-size:38px}
   .hero-circle{opacity:.3}
+  .hero-float{display:none}
   .ticker{margin:0}
   .ticker{grid-template-columns:1fr}
   .ticker-item{border-right:none;border-bottom:1px solid var(--stone)}
   .about{grid-template-columns:1fr}
-  .about-img{min-height:300px}
+  .about-img{display:none}
   .about-content{padding:60px 24px}
   .principles{padding:60px 24px}
   .pr-grid{grid-template-columns:1fr}
@@ -212,12 +230,14 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   .trans-visual{flex-direction:column;gap:24px}
   .trans-mid{flex:0 0 auto}
   .trans-line{display:none}
+  #trans-arrows{display:none}
+  .trans-arrow-mobile{display:flex!important;justify-content:center;padding:8px 0}
   .how{grid-template-columns:1fr}
   .how-content{padding:60px 24px}
-  .how-img{min-height:300px}
+  .how-img{display:none}
   .brought{grid-template-columns:1fr}
   .brought-text{padding:60px 24px}
-  .brought-img{min-height:300px}
+  .brought-img{display:none}
   .engage{padding:80px 24px}
   .engage-flow{flex-direction:column}
   .es-arrow{display:none}
@@ -233,7 +253,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">
+  <a href="/" class="n-logo">
     <img class="logo-light" src="logo-light.svg" alt="CuePoint Advisory">
     <img class="logo-dark" src="logo-dark.svg" alt="CuePoint Advisory">
   </a>
@@ -243,7 +263,23 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <li><a href="oncue.html">Signature Offerings</a></li>
     <li><a href="#contact" class="n-cta">Get in Touch</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <svg class="ham-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor"/>
+      <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor"/>
+      <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor"/>
+    </svg>
+    <svg class="ham-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+      <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+    </svg>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob-menu">
+  <a href="oncue.html">Signature Offerings</a>
+  <a href="#contact" class="n-cta" onclick="document.getElementById('mob-menu').classList.remove('open');document.getElementById('hamburger').classList.remove('active')">Get in Touch</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -347,6 +383,12 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
       <div class="trans-domain" style="background:#7A8A98">
         <div><h4>Health Policy &amp; Regulatory</h4><span>How legislation and government policy reshape the access landscape for manufacturers</span></div>
       </div>
+    </div>
+    <div class="trans-arrow-mobile" style="display:none">
+      <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
+        <line x1="12" y1="0" x2="12" y2="34" stroke="rgba(44,62,45,.4)" stroke-width="1.5"/>
+        <path d="M6,28 L12,36 L18,28" stroke="rgba(44,62,45,.4)" stroke-width="1.5" fill="none"/>
+      </svg>
     </div>
     <div class="trans-mid">
       <div class="trans-node">
@@ -533,6 +575,12 @@ window.addEventListener('scroll',()=>{
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+});
 
 // FormSubmit AJAX handler
 const ctaForm=document.querySelector('.cta-form');
