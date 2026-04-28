@@ -132,8 +132,12 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 .how{padding:0;display:grid;grid-template-columns:1.4fr 1fr;min-height:620px}
 .how-content{padding:100px 80px 100px 15vw;display:flex;flex-direction:column;justify-content:center}
 .how-ey{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--mid-terracotta);margin-bottom:14px}
-.how-h{font-family:'EB Garamond',serif;font-size:40px;font-weight:600;color:var(--forest-ink);line-height:1.2;margin-bottom:12px}
+.how-h{font-family:'EB Garamond',serif;font-size:40px;font-weight:600;color:var(--forest-ink);line-height:1.2;margin-bottom:24px}
 .how-sub{font-size:17px;color:var(--sage-slate);line-height:1.7;margin-bottom:40px}
+.how-p{font-size:16px;line-height:1.75;color:var(--sage-slate);margin-bottom:18px}
+.how-nots{list-style:none;display:flex;flex-direction:column;gap:6px;margin:24px 0;padding:20px 24px;border-left:2px solid var(--warm-clay);background:white}
+.how-nots li{font-family:'EB Garamond',serif;font-size:22px;color:var(--mid-terracotta);line-height:1.45}
+.how-cap{font-family:'EB Garamond',serif;font-size:20px;font-style:italic;color:var(--forest-ink);line-height:1.55;margin-top:8px}
 .how-items{display:flex;flex-direction:column;gap:24px}
 .how-item{display:flex;gap:20px;align-items:flex-start}
 .how-item-num{font-family:'EB Garamond',serif;font-size:40px;font-weight:600;color:var(--stone);line-height:1;min-width:44px}
@@ -143,12 +147,26 @@ nav.scrolled .n-cta:hover{background:var(--forest-ink)}
 .how-img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
 .how-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--bone) 0%,transparent 15%)}
 
+
+/* HOW WE SEE THE MARKET */
+.market{padding:120px 15vw;background:var(--deep-forest);position:relative;overflow:hidden}
+.market::before{content:'';position:absolute;top:50%;left:50%;width:120%;height:160%;background:radial-gradient(ellipse at center,rgba(181,114,94,0.12) 0%,transparent 55%);transform:translate(-50%,-50%);pointer-events:none}
+.market-content{max-width:780px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.market-ey{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--warm-clay);margin-bottom:18px}
+.market-h{font-family:'EB Garamond',serif;font-size:40px;font-weight:600;color:white;line-height:1.2;margin-bottom:32px}
+.market-p{font-size:17px;line-height:1.8;color:rgba(255,255,255,.78);margin-bottom:22px}
+.market-cap{font-family:'EB Garamond',serif;font-size:26px;font-style:italic;color:var(--warm-clay);margin-top:36px;line-height:1.4}
+
 /* BROUGHT IN */
 .brought{padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:560px}
 .brought-text{padding:100px 15vw 100px 80px;display:flex;flex-direction:column;justify-content:center}
 .brought-ey{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--mid-terracotta);margin-bottom:14px}
 .brought-h{font-family:'EB Garamond',serif;font-size:36px;font-weight:600;color:var(--forest-ink);line-height:1.25;margin-bottom:20px}
 .brought-p{font-size:16px;line-height:1.75;color:var(--sage-slate)}
+.brought-lead{font-family:'EB Garamond',serif;font-size:26px;font-weight:600;color:var(--forest-ink);line-height:1.35;margin-bottom:24px}
+.brought-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.brought-list li{display:flex;align-items:flex-start;gap:16px;font-size:15.5px;line-height:1.55;color:var(--forest-ink)}
+.brought-list li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--mid-terracotta);margin-top:9px}
 .brought-img{position:relative;overflow:hidden}
 .brought-img img{width:100%;height:100%;object-fit:cover;display:block}
 .brought-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--bone) 0%,transparent 15%)}
@@ -236,6 +254,12 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   .how{grid-template-columns:1fr}
   .how-content{padding:60px 24px}
   .how-img{display:none}
+  .why{padding:60px 24px}
+  .why-h{font-size:30px}
+  .why-list{grid-template-columns:1fr;gap:14px}
+  .market{padding:60px 24px}
+  .market-h{font-size:28px}
+  .market-cap{font-size:22px}
   .brought{grid-template-columns:1fr}
   .brought-text{padding:60px 24px}
   .brought-img{display:none}
@@ -307,7 +331,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
   <div class="hero-float hero-float-4">Direct to Employer</div>
   <div class="hero-content">
     <h1>Positioning healthcare leaders ahead of <em>market-defining moments.</em></h1>
-    <p class="hero-p">Strategic advisory for pharmaceutical and life sciences executives navigating access, affordability, and growth.</p>
+    <p class="hero-p">Trusted partner for select pharmaceutical leaders navigating access, affordability, and growth.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-p">Start a Conversation</a>
       <a href="#about" class="btn-g">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -323,8 +347,8 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
       <div class="ticker-label">Years in healthcare consulting</div>
     </div>
     <div class="ticker-item">
-      <div class="ticker-num">C-Suite</div>
-      <div class="ticker-label">Senior executive focus</div>
+      <div class="ticker-num">70+</div>
+      <div class="ticker-label">Brands commercialized</div>
     </div>
     <div class="ticker-item">
       <div class="ticker-num">5</div>
@@ -343,7 +367,7 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <div class="about-ey">Who We Are</div>
     <h2 class="about-h">Judgment Before Execution</h2>
     <p class="about-p">CuePoint advises healthcare and life sciences leaders navigating structural change, executives accountable for access, growth, and positioning when the stakes are high and the path forward is unclear.</p>
-    <p class="about-p">Our value is strategic translation: moving fluidly between payer economics, employer benefit design, patient behavior, and policy dynamics to frame choices others present as isolated problems.</p>
+    <p class="about-p">Our value is cross-domain translation: moving fluidly between payer economics, employer benefit design, patient behavior, and policy dynamics to frame choices others present as isolated problems.</p>
     <div class="about-pull">"The most dangerous decisions aren't the ones that look risky. They're the ones that look safe because no one questioned the assumptions."</div>
   </div>
 </section>
@@ -373,10 +397,10 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     </svg>
     <div class="trans-col">
       <div class="trans-domain" style="background:#2F4A45">
-        <div><h4>Payer Strategy &amp; Contracting</h4><span>Optimizing formulary access in one channel increasingly creates risk in another</span></div>
+        <div><h4>Payer &amp; PBM Dynamics</h4><span>How formulary decisions, rebate structures, and PBM contracts shape access and economics across payer segments</span></div>
       </div>
       <div class="trans-domain" style="background:#3A5249">
-        <div><h4>PBM &amp; Channel Dynamics</h4><span>How products flow through PBMs, specialty pharmacies, GPOs, and distribution networks</span></div>
+        <div><h4>Channel &amp; Distribution Dynamics</h4><span>How products move through wholesalers, specialty pharmacies, and dispensing networks to reach patients</span></div>
       </div>
       <div class="trans-domain" style="background:#4E6256">
         <div><h4>Employer Benefits Strategy</h4><span>How employers design, fund, and manage health benefits and how those decisions shape access</span></div>
@@ -396,8 +420,8 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     </div>
     <div class="trans-mid">
       <div class="trans-node">
-        <h3>Strategic Translation</h3>
-        <p>Synthesizing across domains to surface implications, tradeoffs, and actionable recommendations</p>
+        <h3>Cross Domain Translation</h3>
+        <p>Synthesizing across disciplines to surface implications, tradeoffs, and actionable recommendations</p>
       </div>
     </div>
 <div class="trans-out">
@@ -413,35 +437,33 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
 <section class="how">
   <div class="how-content fu">
     <div class="how-ey">How We Work</div>
-    <h2 class="how-h">Lean by design</h2>
-    <div class="how-sub">Built to deliver clarity before leaders commit to action.</div>
-    <div class="how-items">
-      <div class="how-item">
-        <div class="how-item-num">01</div>
-        <div>
-          <h3>Lean Proactive Teams</h3>
-          <p>Senior-led teams with no unnecessary layers, focused work, faster decisions, and clear accountability.</p>
-        </div>
-      </div>
-      <div class="how-item">
-        <div class="how-item-num">02</div>
-        <div>
-          <h3>AI-Enabled Leverage</h3>
-          <p>AI-integrated delivery expands capacity and accelerates turnaround without adding headcount.</p>
-        </div>
-      </div>
-      <div class="how-item">
-        <div class="how-item-num">03</div>
-        <div>
-          <h3>Disciplined Capital Use</h3>
-          <p>Resources deployed only where they drive material impact.</p>
-        </div>
-      </div>
-    </div>
+    <h2 class="how-h">We keep our model selective by design.</h2>
+    <p class="how-p">We partner with a limited number of clients where we can add meaningful value and work directly with decision-makers.</p>
+    <p class="how-p">Our structure is lean, efficient, and built for impact. Clients benefit from senior attention, faster execution, and disciplined use of budget.</p>
+    <ul class="how-nots">
+      <li>No bloated teams.</li>
+      <li>No generic playbooks.</li>
+      <li>No process for the sake of process.</li>
+      <li>No unnecessary overhead.</li>
+    </ul>
+    <p class="how-cap">Just experienced counsel, focused execution, and work that moves the business forward.</p>
   </div>
   <div class="how-img">
     <img src="Balance.png" alt="Collaborative strategy work">
     <div class="how-img-overlay"></div>
+  </div>
+</section>
+
+
+<!-- HOW WE SEE THE MARKET -->
+<section class="market">
+  <div class="market-content fu">
+    <div class="market-ey">How We See the Market</div>
+    <h2 class="market-h">More complex.<br> More connected.<br> More consequential.</h2>
+    <p class="market-p">Market access is becoming more complex, more connected, and more consequential than ever before.</p>
+    <p class="market-p">Policy shifts, pricing pressure, channel disruption, employer influence, affordability demands, and AI-driven transformation are reshaping how access decisions get made.</p>
+    <p class="market-p">The advantage now belongs to leaders who can interpret change early, align quickly, and act with conviction.</p>
+    <p class="market-cap">That is where we help.</p>
   </div>
 </section>
 
@@ -452,9 +474,18 @@ footer{background:var(--forest-ink);padding:44px 15vw;display:flex;justify-conte
     <div class="brought-img-overlay" style="background:linear-gradient(to left,var(--bone) 0%,transparent 15%)"></div>
   </div>
   <div class="brought-text fu">
-    <div class="brought-ey">Where We're Brought In</div>
-    <h2 class="brought-h">When structural pressure meets decisions that cannot afford to be wrong</h2>
-    <p class="brought-p">CuePoint is engaged at inflection points: market launches, access strategy pivots, program redesigns. Where the cost of misreading the landscape is measured in years, not quarters.</p>
+    <div class="brought-ey">Where We Are Brought In</div>
+    <p class="brought-lead">Clients typically engage CuePoint when:</p>
+    <ul class="brought-list">
+      <li>A launch or relaunch carries significant commercial risk</li>
+      <li>Market access strategy needs to evolve</li>
+      <li>Pricing and access pressure is increasing</li>
+      <li>Employer influence is reshaping coverage and benefit decisions</li>
+      <li>Patient support models need redesign</li>
+      <li>Leadership teams need sharper strategic alignment</li>
+      <li>New growth opportunities need structure and prioritization</li>
+      <li>Internal teams need outside perspective that is fast and credible</li>
+    </ul>
   </div>
 </section>
 
